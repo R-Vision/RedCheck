@@ -1,0 +1,20 @@
+<redcheck>
+    <definitions>
+        <definition altx_id="66262" class="5" oval_id="oval:ru.altx-soft.win:def:38098" version="1" deprecated="false"
+                    severity="0">
+            <title>Уязвимость в групповой политике, связанная с удаленным выполнением кода (CVE-2015-0008)</title>
+            <description>UNC реализации не включают аутентификацию от сервера к клиенту, что позволяет удалённым
+                злоумышленникам выполнить произвольный код путем создания доступных UNC данных.
+            </description>
+            <remediation>The latest update from the manufacturer needs to be installed.</remediation>
+            <reference source="CVE" ref_id="CVE-2015-0008"
+                       ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-0008">
+                <cvss_score>8.3</cvss_score>
+                <cvss_vector>AV:A/AC:L/Au:N/C:C/I:C/A:C</cvss_vector>
+                <cwe>CWE-345</cwe>
+            </reference>
+            <reference source="Microsoft" ref_id="MS15-011"
+                       ref_url="https://technet.microsoft.com/ru-ru/library/security/ms15-011"/>
+        </definition>
+    </definitions>
+</redcheck>

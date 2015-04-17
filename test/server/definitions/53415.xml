@@ -1,0 +1,21 @@
+<redcheck>
+    <definitions>
+        <definition altx_id="53415" class="5" oval_id="oval:ru.altx-soft.win:def:24099" version="1" deprecated="false"
+                    severity="0">
+            <title>Уязвимость в Microsoft Internet Explorer (CVE-2013-4015)</title>
+            <description>Microsoft Internet Explorer с 6 по 10 позволяет локальным пользователям обойти проверку
+                повышения политики в (1) Защищенном режиме или (2) Enhanced Protected Mode механизме, и, следовательно,
+                получить привилегии, используя способность выполнять изолированный код.
+            </description>
+            <remediation>The latest update from the manufacturer needs to be installed.</remediation>
+            <reference source="CVE" ref_id="CVE-2013-4015"
+                       ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-4015">
+                <cvss_score>6.9</cvss_score>
+                <cvss_vector>AV:L/AC:M/Au:N/C:C/I:C/A:C</cvss_vector>
+                <cwe>CWE-264</cwe>
+            </reference>
+            <reference source="Microsoft" ref_id="MS13-055"
+                       ref_url="https://technet.microsoft.com/ru-ru/library/security/MS13-055"/>
+        </definition>
+    </definitions>
+</redcheck>

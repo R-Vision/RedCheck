@@ -1,0 +1,21 @@
+<redcheck>
+    <definitions>
+        <definition altx_id="53418" class="5" oval_id="oval:ru.altx-soft.win:def:24102" version="2" deprecated="false"
+                    severity="0">
+            <title>Уязвимость Microsoft SQL Server, приводящая к переполнению стека (CVE-2014-4061)</title>
+            <description>В SQL Server существует уязвимость, приводящая к отказу в обслуживании. Злоумышленник, успешно
+                воспользовавшийся данной уязвимостью, может заставить сервер перестать отвечать на запросы, пока не
+                будет инициирована ручная перезагрузка.
+            </description>
+            <remediation>The latest update from the manufacturer needs to be installed.</remediation>
+            <reference source="CVE" ref_id="CVE-2014-4061"
+                       ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4061">
+                <cvss_score>6.8</cvss_score>
+                <cvss_vector>AV:N/AC:L/Au:S/C:N/I:N/A:C</cvss_vector>
+                <cwe>CWE-399</cwe>
+            </reference>
+            <reference source="Microsoft" ref_id="MS14-044"
+                       ref_url="https://technet.microsoft.com/ru-ru/library/security/MS14-044"/>
+        </definition>
+    </definitions>
+</redcheck>

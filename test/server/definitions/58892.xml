@@ -1,0 +1,22 @@
+<redcheck>
+    <definitions>
+        <definition altx_id="58892" class="5" oval_id="oval:ru.altx-soft.win:def:33595" version="2" deprecated="false"
+                    severity="0">
+            <title>Уязвимость в SSL 3.0 (POODLE) в Windows (CVE-2014-3566)</title>
+            <description>Уязвимость в SSL 3.0, которая позволяет злоумышленникам получить доступ к передаваемым данным.
+                Уязвимость получила наименование POODLE (Padding Oracle On Downgraded Legacy Encryption). Microsoft
+                рекомендует отключить SSL 3.0 и включить TLS 1.0, TLS 1.1, and TLS 1.2
+                (https://technet.microsoft.com/en-us/library/security/3009008.aspx).
+            </description>
+            <remediation>Необходимо произвести рекомендуемую производителем конфигурацию ПО в соответствии с инструкцией
+                по ссылке https://technet.microsoft.com/en-us/library/security/3009008.aspx
+            </remediation>
+            <reference source="CVE" ref_id="CVE-2014-3566"
+                       ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3566">
+                <cvss_score>4.3</cvss_score>
+                <cvss_vector>AV:N/AC:M/Au:N/C:P/I:N/A:N</cvss_vector>
+                <cwe>CWE-310</cwe>
+            </reference>
+        </definition>
+    </definitions>
+</redcheck>

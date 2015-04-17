@@ -1,0 +1,129 @@
+<redcheck>
+    <scan_result id="41" host_id="13" start="2015-04-17T14:45:33.093" stop="2015-04-17T14:46:00.187" status="Complete"
+                 cpe="cpe:/o:ubuntu:ubuntu_linux:14.10">
+        <patch altx_id="65906" version="1">
+            <detalization>
+                <item>file (1:5.19-1ubuntu1.1)</item>
+            </detalization>
+            <products>
+                <product>cpe:/o:ubuntu:ubuntu_linux:14.10</product>
+            </products>
+        </patch>
+        <patch altx_id="65952" version="1">
+            <detalization>
+                <item>libk5crypto3 (0:1.12.1+dfsg-10)</item>
+                <item>libkrb5-3 (0:1.12.1+dfsg-10)</item>
+                <item>libkrb5support0 (0:1.12.1+dfsg-10)</item>
+                <item>libgssapi-krb5-2 (0:1.12.1+dfsg-10)</item>
+            </detalization>
+            <products>
+                <product>cpe:/o:ubuntu:ubuntu_linux:14.10</product>
+            </products>
+        </patch>
+        <patch altx_id="66510" version="1">
+            <detalization>
+                <item>libfreetype6 (0:2.5.2-2ubuntu1)</item>
+            </detalization>
+            <products>
+                <product>cpe:/o:ubuntu:ubuntu_linux:14.10</product>
+            </products>
+        </patch>
+        <patch altx_id="66511" version="1">
+            <detalization>
+                <item>ca-certificates (0:20140325-0)</item>
+            </detalization>
+            <products>
+                <product>cpe:/o:ubuntu:ubuntu_linux:14.10</product>
+            </products>
+        </patch>
+        <patch altx_id="66513" version="1">
+            <detalization>
+                <item>e2fsprogs (0:1.42.10-1.1ubuntu1)</item>
+            </detalization>
+            <products>
+                <product>cpe:/o:ubuntu:ubuntu_linux:14.10</product>
+            </products>
+        </patch>
+        <patch altx_id="66573" version="1">
+            <detalization>
+                <item>libc6 (0:2.19-10ubuntu2.2)</item>
+            </detalization>
+            <products>
+                <product>cpe:/o:ubuntu:ubuntu_linux:14.10</product>
+            </products>
+        </patch>
+        <patch altx_id="66725" version="1">
+            <detalization>
+                <item>libicu52 (0:52.1-6)</item>
+            </detalization>
+            <products>
+                <product>cpe:/o:ubuntu:ubuntu_linux:14.10</product>
+            </products>
+        </patch>
+        <patch altx_id="67051" version="1">
+            <detalization>
+                <item>sudo (0:1.8.9p5-1ubuntu2)</item>
+            </detalization>
+            <products>
+                <product>cpe:/o:ubuntu:ubuntu_linux:14.10</product>
+            </products>
+        </patch>
+        <patch altx_id="67052" version="1">
+            <detalization>
+                <item>python-requests (0:2.3.0-1)</item>
+            </detalization>
+            <products>
+                <product>cpe:/o:ubuntu:ubuntu_linux:14.10</product>
+            </products>
+        </patch>
+        <patch altx_id="67258" version="1">
+            <detalization>
+                <item>libssl1.0.0 (0:1.0.1f-1ubuntu9.1)</item>
+            </detalization>
+            <products>
+                <product>cpe:/o:ubuntu:ubuntu_linux:14.10</product>
+            </products>
+        </patch>
+        <patch altx_id="67317" version="1">
+            <detalization>
+                <item>libgnutls-deb0-28 (0:3.2.16-1ubuntu2.1)</item>
+            </detalization>
+            <products>
+                <product>cpe:/o:ubuntu:ubuntu_linux:14.10</product>
+            </products>
+        </patch>
+        <patch altx_id="67443" version="1">
+            <detalization>
+                <item>libgcrypt20 (0:1.6.1-2ubuntu1)</item>
+                <item>libgcrypt11 (0:1.5.4-2ubuntu1)</item>
+            </detalization>
+            <products>
+                <product>cpe:/o:ubuntu:ubuntu_linux:14.10</product>
+            </products>
+        </patch>
+        <patch altx_id="67444" version="1">
+            <detalization>
+                <item>gnupg (0:1.4.16-1.2ubuntu1)</item>
+            </detalization>
+            <products>
+                <product>cpe:/o:ubuntu:ubuntu_linux:14.10</product>
+            </products>
+        </patch>
+        <patch altx_id="67492" version="1">
+            <detalization>
+                <item>libtasn1-6 (0:4.0-2)</item>
+            </detalization>
+            <products>
+                <product>cpe:/o:ubuntu:ubuntu_linux:14.10</product>
+            </products>
+        </patch>
+        <patch altx_id="68523" version="1">
+            <detalization>
+                <item>apport (0:2.14.7-0ubuntu8.1)</item>
+            </detalization>
+            <products>
+                <product>cpe:/o:ubuntu:ubuntu_linux:14.10</product>
+            </products>
+        </patch>
+    </scan_result>
+</redcheck>

@@ -1,0 +1,29 @@
+<redcheck>
+    <definitions>
+        <definition altx_id="58893" class="5" oval_id="oval:ru.altx-soft.win:def:33596" version="3" deprecated="false"
+                    severity="0">
+            <title>Уязвимость в SSL 3.0 (POODLE) в Internet Explorer (GPO) (CVE-2014-3566)</title>
+            <description>Уязвимость в SSL 3.0, которая позволяет злоумышленникам получить доступ к передаваемым данным.
+                Уязвимость получила наименование POODLE (Padding Oracle On Downgraded Legacy Encryption). Microsoft
+                рекомендует отключить SSL 3.0 и включить TLS 1.0, TLS 1.1, and TLS 1.2
+                (https://technet.microsoft.com/en-us/library/security/3009008.aspx).
+                Для настройки необходимо:
+                1. Открыть редактор групповых политик (gpedit.msc).
+                2. Перейти по пути: Конфигурация компьютера\Административные шаблоны\Компоненты Windows\Internet
+                Explorer\Панель управления браузером\Вкладка "Дополнительно".
+                3. Выбрать "Выключить поддержку шифрования", нажать "Изменить".
+                4. Изменить сочетание безопасных протоколов на "Использовать TLS 1.0, TLS 1.1, и TLS 1.2".
+                5. Нажать "OK".
+            </description>
+            <remediation>Необходимо произвести рекомендуемую производителем конфигурацию ПО в соответствии с инструкцией
+                по ссылке https://technet.microsoft.com/en-us/library/security/3009008.aspx
+            </remediation>
+            <reference source="CVE" ref_id="CVE-2014-3566"
+                       ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3566">
+                <cvss_score>4.3</cvss_score>
+                <cvss_vector>AV:N/AC:M/Au:N/C:P/I:N/A:N</cvss_vector>
+                <cwe>CWE-310</cwe>
+            </reference>
+        </definition>
+    </definitions>
+</redcheck>

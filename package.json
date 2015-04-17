@@ -1,5 +1,5 @@
 {
-  "name": "RedCheck",
+  "name": "redcheck",
   "version": "0.0.1",
   "description": "RedCheck API wrapper",
   "main": "index.js",
@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/R-Vision/RedCheck",
   "dependencies": {
-    "lodash": "^3.6.0",
+    "lodash": "^3.7.0",
     "request": "^2.55.0",
     "xml2js": "^0.4.6"
   },

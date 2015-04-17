@@ -1,0 +1,49 @@
+<redcheck>
+    <scan_result id="23" host_id="1" start="2015-04-16T14:10:27.61" stop="2015-04-16T14:12:19.437" status="Complete"
+                 cpe="cpe:/o:microsoft:windows_server_2012:r2::datacenter">
+        <patch altx_id="37153" version="1">
+            <detalization>
+                <item>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session
+                    Manager\Environment!PROCESSOR_ARCHITECTURE:AMD64
+                </item>
+                <item>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL
+                    Server\MSSQL11.SQLEXPRESS\Setup!Version:11.0.2100.60
+                </item>
+            </detalization>
+            <products>
+                <product>cpe:/a:microsoft:sql_server:2012</product>
+            </products>
+        </patch>
+        <patch altx_id="53464" version="1">
+            <detalization>
+                <item>c:\Program Files\Microsoft SQL Server\110\Setup
+                    Bootstrap\SQLServer2012\x64\Microsoft.SqlServer.Chainer.Infrastructure.dll (11.0.3128.0)
+                </item>
+            </detalization>
+            <products>
+                <product>cpe:/a:microsoft:sql_server:2012</product>
+            </products>
+        </patch>
+        <patch altx_id="62733" version="1">
+            <detalization>
+                <item>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session
+                    Manager\Environment!PROCESSOR_ARCHITECTURE:AMD64
+                </item>
+                <item>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL
+                    Server\MSSQL11.SQLEXPRESS\Setup!Version:11.0.2100.60
+                </item>
+            </detalization>
+            <products>
+                <product>cpe:/a:microsoft:sql_server:2012</product>
+            </products>
+        </patch>
+        <patch altx_id="66359" version="1">
+            <detalization>
+                <item>C:\Windows\System32\gpsvc.dll (6.3.9600.17415)</item>
+            </detalization>
+            <products>
+                <product>cpe:/o:microsoft:windows_server_2012:r2</product>
+            </products>
+        </patch>
+    </scan_result>
+</redcheck>

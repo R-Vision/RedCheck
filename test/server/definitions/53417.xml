@@ -1,0 +1,25 @@
+<redcheck>
+    <definitions>
+        <definition altx_id="53417" class="5" oval_id="oval:ru.altx-soft.win:def:24101" version="2" deprecated="false"
+                    severity="0">
+            <title>Уязвимость SQL Master Data Services, приводящая к межсайтовому выполнению сценариев (XSS)
+                (CVE-2014-1820)
+            </title>
+            <description>В SQL Master Data Services (MDS) существует уязвимость, приводящая к межсайтовому выполнению
+                сценариев (XSS), которая может позволить злоумышленнику внедрить сценарий на стороне клиента в
+                пользовательском экземпляре Internet Explorer. Сценарий может подменить содержимое, раскрыть данные или
+                предпринять любое действие, которое может осуществлять пользователь на сайте, от имени атакованного
+                пользователя.
+            </description>
+            <remediation>The latest update from the manufacturer needs to be installed.</remediation>
+            <reference source="CVE" ref_id="CVE-2014-1820"
+                       ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1820">
+                <cvss_score>4.3</cvss_score>
+                <cvss_vector>AV:N/AC:M/Au:N/C:N/I:P/A:N</cvss_vector>
+                <cwe>CWE-79</cwe>
+            </reference>
+            <reference source="Microsoft" ref_id="MS14-044"
+                       ref_url="https://technet.microsoft.com/ru-ru/library/security/MS14-044"/>
+        </definition>
+    </definitions>
+</redcheck>
