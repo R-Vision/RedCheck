@@ -47,6 +47,55 @@ var parseXml = function (body, callback) {
 };
 
 /**
+ * Convert some object to Array
+ * @param obj
+ * @returns {*}
+ */
+var toArray = function (obj) {
+    if (!_.isEmpty(obj) && (_.isObject(obj) || _.isString(obj)) && !_.isArray(obj)) {
+        obj = [obj];
+    } else if (!_.isArray(obj)) {
+        obj = [];
+    }
+
+    return obj;
+};
+
+/**
+ * Convert property from item to array
+ * @param item
+ * @param property
+ * @returns {Array}
+ */
+var toArrayFromProperty = function (item, property) {
+    var result = [];
+
+    if (item.hasOwnProperty(property)) {
+        result = toArray(item[property]);
+    }
+
+    return result;
+};
+
+/**
+ * Check result and execute callback
+ * @param callback
+ * @param err
+ * @param result
+ */
+var runCallback = function (callback, err, result) {
+    if (!err && _.isEmpty(result)) {
+        err = new Error('Result is empty');
+    }
+
+    if (err) {
+        callback(err);
+    } else {
+        callback(null, result);
+    }
+};
+
+/**
  * RedCheck
  * @param options
  * @constructor
@@ -85,32 +134,27 @@ function RedCheck(options) {
 RedCheck.prototype.get = function (url, callback) {
     this.request.get(url, function (error, response, body) {
         if (error) {
-            callback(error);
-            return;
+            return callback(error);
         }
 
         if (response.statusCode !== 200) {
-            callback(new Error(''));
-            return;
+            return callback(new Error('Status code is not 200'));
         }
 
         parseXml(body, function (err, xml) {
+            if (!err) {
+                if (xml.hasOwnProperty('error')) {
+                    err = new Error(xml.error);
+                } else if (xml.hasOwnProperty('message')) {
+                    err = new Error(xml.message);
+                }
+            }
+
             if (err) {
                 callback(err);
-                return;
+            } else {
+                callback(null, response, xml);
             }
-
-            if (xml.hasOwnProperty('error')) {
-                callback(new Error(xml.error));
-                return;
-            }
-
-            if (xml.hasOwnProperty('message')) {
-                callback(new Error(xml.message));
-                return;
-            }
-
-            callback(error, response, xml);
         });
     });
 };
@@ -120,7 +164,19 @@ RedCheck.prototype.get = function (url, callback) {
  * @param callback
  */
 RedCheck.prototype.info = function (callback) {
-    this.get('info', callback);
+    this.get('info', function (err, response, data) {
+        var result = {};
+
+        if (!err) {
+            if (data.hasOwnProperty('metadata')) {
+                result = data.metadata;
+            } else {
+                err = new Error('metadata is undefined');
+            }
+        }
+
+        runCallback(callback, err, result);
+    });
 };
 
 /**
@@ -129,18 +185,29 @@ RedCheck.prototype.info = function (callback) {
  */
 RedCheck.prototype.hosts = function (callback) {
     this.get('hosts', function (err, response, data) {
-        if (err) {
-            callback(err);
-            return;
-        }
+        var result = [];
 
-        if (data.hasOwnProperty('hosts')) {
-            if (!_.isEmpty(data.hosts) && _.isObject(data.hosts) && !_.isArray(data.hosts)) {
-                data.hosts = [data.hosts];
+        if (!err) {
+            if (data.hasOwnProperty('hosts')) {
+                var hosts = data.hosts;
+
+                if (hosts.hasOwnProperty('host')) {
+                    toArray(hosts.host).forEach(function (item) {
+                        toArray(item).forEach(function (host) {
+                            if (!_.isEmpty(host)) {
+                                result.push(host);
+                            }
+                        });
+                    });
+                } else {
+                    err = new Error('host is undefined');
+                }
+            } else {
+                err = new Error('hosts is undefined');
             }
         }
 
-        callback(err, response, data);
+        runCallback(callback, err, result);
     });
 };
 
@@ -151,20 +218,27 @@ RedCheck.prototype.hosts = function (callback) {
  */
 RedCheck.prototype.vulnerability = function (id, callback) {
     this.get('vulnerability/' + id, function (err, response, data) {
-        if (err) {
-            callback(err);
-            return;
-        }
+        var result = [];
 
-        if (data.hasOwnProperty('scan_result') && data.scan_result.hasOwnProperty('vulnerability')) {
-            var vulnerability = data.scan_result.vulnerability;
+        if (!err) {
+            if (data.hasOwnProperty('scan_result')) {
+                var scanResult = data.scan_result;
 
-            if (!_.isEmpty(vulnerability) && _.isObject(vulnerability) && !_.isArray(vulnerability)) {
-                data.scan_result.vulnerability = [vulnerability];
+                if (scanResult.hasOwnProperty('vulnerability')) {
+                    toArray(scanResult.vulnerability).forEach(function (vulnerability) {
+                        if (!_.isEmpty(vulnerability)) {
+                            result.push(vulnerability);
+                        }
+                    });
+                } else {
+                    err = new Error('vulnerability is undefined');
+                }
+            } else {
+                err = new Error('scan_result is undefined');
             }
         }
 
-        callback(err, response, data);
+        runCallback(callback, err, result);
     });
 };
 
@@ -174,7 +248,29 @@ RedCheck.prototype.vulnerability = function (id, callback) {
  * @param callback
  */
 RedCheck.prototype.definitions = function (id, callback) {
-    this.get('definitions/' + id, callback);
+    this.get('definitions/' + id, function (err, response, data) {
+        var result = {};
+
+        if (!err) {
+            if (data.hasOwnProperty('definitions')) {
+                var definitions = data.definitions;
+
+                if (definitions.hasOwnProperty('definition')) {
+                    result = definitions.definition;
+
+                    if (result.hasOwnProperty('reference')) {
+                        result.reference = toArray(result.reference);
+                    }
+                } else {
+                    err = new Error('definition is undefined');
+                }
+            } else {
+                err = new Error('definitions is undefined');
+            }
+        }
+
+        runCallback(callback, err, result);
+    });
 };
 
 /**
@@ -183,7 +279,37 @@ RedCheck.prototype.definitions = function (id, callback) {
  * @param callback
  */
 RedCheck.prototype.patch = function (id, callback) {
-    this.get('patch/' + id, callback);
+    this.get('patch/' + id, function (err, response, data) {
+        var result = [];
+
+        if (!err) {
+            if (data.hasOwnProperty('scan_result')) {
+                var scanResult = data.scan_result;
+
+                if (scanResult.hasOwnProperty('patch')) {
+                    toArray(scanResult.patch).forEach(function (patch) {
+                        if (!_.isEmpty(patch)) {
+                            if (patch.hasOwnProperty('detalization')) {
+                                patch.detalization = toArrayFromProperty(patch.detalization, 'item');
+                            }
+
+                            if (patch.hasOwnProperty('products')) {
+                                patch.products = toArrayFromProperty(patch.products, 'product');
+                            }
+
+                            result.push(patch);
+                        }
+                    });
+                } else {
+                    err = new Error('patch is undefined');
+                }
+            } else {
+                err = new Error('scan_result is undefined');
+            }
+        }
+
+        runCallback(callback, err, result);
+    });
 };
 
 /**
@@ -192,7 +318,49 @@ RedCheck.prototype.patch = function (id, callback) {
  * @param callback
  */
 RedCheck.prototype.inventory = function (id, callback) {
-    this.get('inventory/' + id, callback);
+    this.get('inventory/' + id, function (err, response, data) {
+        var result = [];
+
+        if (!err) {
+            if (data.hasOwnProperty('scan_result')) {
+                var scanResult = data.scan_result;
+
+                if (scanResult.hasOwnProperty('hardware')) {
+                    result = scanResult.hardware;
+
+                    if (result.hasOwnProperty('cpus')) {
+                        result.cpus = toArrayFromProperty(result.cpus, 'cpu');
+                    }
+
+                    if (result.hasOwnProperty('memoryslots')) {
+                        result.memoryslots = toArrayFromProperty(result.memoryslots, 'memoryslot');
+                    }
+
+                    if (result.hasOwnProperty('videocontrollers')) {
+                        result.videocontrollers = toArrayFromProperty(result.videocontrollers, 'videocontroller');
+                    }
+
+                    if (result.hasOwnProperty('networkadapters')) {
+                        result.networkadapters = toArrayFromProperty(result.networkadapters, 'adapter');
+                    }
+
+                    if (result.hasOwnProperty('physicaldrives')) {
+                        result.physicaldrives = toArrayFromProperty(result.physicaldrives, 'drive');
+                    }
+
+                    if (result.hasOwnProperty('logicaldrives')) {
+                        result.logicaldrives = toArrayFromProperty(result.logicaldrives, 'drive');
+                    }
+                } else {
+                    err = new Error('hardware is undefined');
+                }
+            } else {
+                err = new Error('scan_result is undefined');
+            }
+        }
+
+        runCallback(callback, err, result);
+    });
 };
 
 module.exports = RedCheck;

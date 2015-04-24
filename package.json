@@ -1,6 +1,6 @@
 {
   "name": "redcheck",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "RedCheck API wrapper",
   "main": "index.js",
   "scripts": {
@@ -22,10 +22,10 @@
   "dependencies": {
     "lodash": "^3.7.0",
     "request": "^2.55.0",
-    "xml2js": "^0.4.6"
+    "xml2js": "^0.4.8"
   },
   "devDependencies": {
     "mocha": "^2.2.4",
-    "should": "^5.2.0"
+    "should": "^6.0.1"
   }
 }

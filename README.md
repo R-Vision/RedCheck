@@ -19,11 +19,11 @@ var redcheck = new RedCheck({
     password: 'YourPassword'
 });
 
-redcheck.info(function (err, info) {
+redcheck.info(function (err, result) {
     if (err) {
         console.error(err);
     } else {
-        console.log(info);
+        console.log(result);
     }
 });
 ```
@@ -31,55 +31,55 @@ redcheck.info(function (err, info) {
 ### Other methods
 Get all hosts
 ```javascript
-redcheck.hosts(function (err, hosts) {
+redcheck.hosts(function (err, result) {
     if (err) {
         console.error(err);
     } else {
-        console.log(hosts);
+        console.log(result);
     }
 });
 ```
 
 Get all vulnerabilities in host
 ```javascript
-redcheck.vulnerability(hostId, function (err, data) {
+redcheck.vulnerability(hostId, function (err, result) {
     if (err) {
         console.error(err);
     } else {
-        console.log(data);
+        console.log(result);
     }
 });
 ```
 
 Get all definitions in host
 ```javascript
-redcheck.definitions(hostId, function (err, data) {
+redcheck.definitions(hostId, function (err, result) {
     if (err) {
         console.error(err);
     } else {
-        console.log(data);
+        console.log(result);
     }
 });
 ```
 
 Get all patches in host
 ```javascript
-redcheck.patch(hostId, function (err, data) {
+redcheck.patch(hostId, function (err, result) {
     if (err) {
         console.error(err);
     } else {
-        console.log(data);
+        console.log(result);
     }
 });
 ```
 
 Get inventory report in host
 ```javascript
-redcheck.inventory(hostId, function (err, data) {
+redcheck.inventory(hostId, function (err, result) {
     if (err) {
         console.error(err);
     } else {
-        console.log(data);
+        console.log(result);
     }
 });
 ```
