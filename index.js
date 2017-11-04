@@ -319,12 +319,11 @@ RedCheck.prototype.patch = function (id, callback) {
  */
 RedCheck.prototype.inventory = function (id, callback) {
     this.get('inventory/' + id, function (err, response, data) {
-        var result = {};
+        var result = [];
 
         if (!err) {
             if (data.hasOwnProperty('scan_result')) {
                 var scanResult = data.scan_result;
-                var updatedAt = scanResult.stop;
 
                 if (scanResult.hasOwnProperty('hardware')) {
                     result = scanResult.hardware;
@@ -352,10 +351,21 @@ RedCheck.prototype.inventory = function (id, callback) {
                     if (result.hasOwnProperty('logicaldrives')) {
                         result.logicaldrives = toArrayFromProperty(result.logicaldrives, 'drive');
                     }
+                } else {
+                    err = new Error('hardware is undefined');
                 }
 
-                if (updatedAt) {
-                    result.updated_at = new Date(updatedAt).toUTCString();
+                if (scanResult.hasOwnProperty('software')) {
+                    if (scanResult.software.hasOwnProperty('os')) {
+                        result.os = scanResult.software.os;
+                    }
+
+                    if (scanResult.software.hasOwnProperty('installedsoftware')) {
+                        result.software = toArrayFromProperty(
+                            scanResult.software.installedsoftware,
+                            'product'
+                        );
+                    }
                 }
             } else {
                 err = new Error('scan_result is undefined');
