@@ -1,0 +1,478 @@
+<redcheck>
+    <scan_result id="2091" host_id="1054" start="2018-08-14T01:44:51.733" stop="2018-08-14T01:46:19.727" status="Complete" cpe="cpe:/o:cisco:ios">
+        <Hardware>
+            <DeviceModel>3725</DeviceModel>
+            <CPU>
+                <Id>FTX0945W0MY</Id>
+                <Type>R7000</Type>
+            </CPU>
+            <MemorySize>249856K/12288K</MemorySize>
+            <MemoryDevices>
+                <MemoryDevice id="NVRAM" title="NVRAM">
+                    <Title>NVRAM</Title>
+                    <Volume>55K</Volume>
+                </MemoryDevice>
+                <MemoryDevice id="ATA System CompactFlash (Read/Write)" title="ATA System CompactFlash (Read/Write)">
+                    <Title>ATA System CompactFlash (Read/Write)</Title>
+                    <Volume>131072K</Volume>
+                </MemoryDevice>
+                <MemoryDevice id="ATA Slot0 CompactFlash (Read/Write)" title="ATA Slot0 CompactFlash (Read/Write)">
+                    <Title>ATA Slot0 CompactFlash (Read/Write)</Title>
+                    <Volume>131072K</Volume>
+                </MemoryDevice>
+            </MemoryDevices>
+        </Hardware>
+        <Software>
+            <OperatingSystem>
+                <Version>12.4(16)</Version>
+                <Family>ios</Family>
+                <Hostname>c3725-2</Hostname>
+                <Domain>rvlab.net</Domain>
+                <ConfigurationRegister>0x2102</ConfigurationRegister>
+                <FileSystems>
+                    <FileSystem id="archive:" title="archive:">
+                        <Title>archive:</Title>
+                        <Type>Opaque</Type>
+                        <Flags>ReadWrite</Flags>
+                    </FileSystem>
+                    <FileSystem id="system:" title="system:">
+                        <Title>system:</Title>
+                        <Type>Opaque</Type>
+                        <Flags>ReadWrite</Flags>
+                        <Files>
+                            <File id="system:/lib/tcl/auto.tcl">
+                                <Directory>system:/lib/tcl/</Directory>
+                                <Name>auto.tcl</Name>
+                                <Size>19247</Size>
+                                <Permissions>Read</Permissions>
+                                <Index>11</Index>
+                            </File>
+                            <File id="system:/lib/tcl/base.tcl">
+                                <Directory>system:/lib/tcl/</Directory>
+                                <Name>base.tcl</Name>
+                                <Size>2577</Size>
+                                <Permissions>Read</Permissions>
+                                <Index>21</Index>
+                            </File>
+                            <File id="system:/lib/tcl/cli_lib.tcl">
+                                <Directory>system:/lib/tcl/</Directory>
+                                <Name>cli_lib.tcl</Name>
+                                <Size>7429</Size>
+                                <Permissions>Read</Permissions>
+                                <Index>23</Index>
+                            </File>
+                            <File id="system:/lib/tcl/context_lib.tcl">
+                                <Directory>system:/lib/tcl/</Directory>
+                                <Name>context_lib.tcl</Name>
+                                <Size>2589</Size>
+                                <Permissions>Read</Permissions>
+                                <Index>24</Index>
+                            </File>
+                        </Files>
+                    </FileSystem>
+                    <FileSystem id="nvram:" title="nvram:">
+                        <Title>nvram:</Title>
+                        <Type>Nvram</Type>
+                        <Flags>ReadWrite</Flags>
+                        <Files>
+                            <File id="nvram:/startup-config">
+                                <Directory>nvram:/</Directory>
+                                <Name>startup-config</Name>
+                                <Size>1167</Size>
+                                <Permissions>Read, Write</Permissions>
+                                <Index>51</Index>
+                            </File>
+                            <File id="nvram:/private-config">
+                                <Directory>nvram:/</Directory>
+                                <Name>private-config</Name>
+                                <Size>2331</Size>
+                                <Permissions>None</Permissions>
+                                <Index>52</Index>
+                            </File>
+                            <File id="nvram:/rf_cold_starts">
+                                <Directory>nvram:/</Directory>
+                                <Name>rf_cold_starts</Name>
+                                <Size>4</Size>
+                                <Permissions>None</Permissions>
+                                <Index>1</Index>
+                            </File>
+                            <File id="nvram:/ifIndex-table">
+                                <Directory>nvram:/</Directory>
+                                <Name>ifIndex-table</Name>
+                                <Size>0</Size>
+                                <Permissions>Read, Write</Permissions>
+                                <Index>2</Index>
+                            </File>
+                            <File id="nvram:/persistent-data">
+                                <Directory>nvram:/</Directory>
+                                <Name>persistent-data</Name>
+                                <Size>13</Size>
+                                <Permissions>None</Permissions>
+                                <Index>3</Index>
+                            </File>
+                        </Files>
+                    </FileSystem>
+                    <FileSystem id="null:" title="null:">
+                        <Title>null:</Title>
+                        <Type>Opaque</Type>
+                        <Flags>ReadWrite</Flags>
+                    </FileSystem>
+                    <FileSystem id="tftp:" title="tftp:">
+                        <Title>tftp:</Title>
+                        <Type>Network</Type>
+                        <Flags>ReadWrite</Flags>
+                    </FileSystem>
+                    <FileSystem id="flash:" title="flash:">
+                        <Title>flash:</Title>
+                        <Type>Flash</Type>
+                        <Flags>ReadWrite</Flags>
+                    </FileSystem>
+                    <FileSystem id="slot0:" title="slot0:">
+                        <Title>slot0:</Title>
+                        <Type>Flash</Type>
+                        <Flags>ReadWrite</Flags>
+                    </FileSystem>
+                    <FileSystem id="syslog:" title="syslog:">
+                        <Title>syslog:</Title>
+                        <Type>Opaque</Type>
+                        <Flags>WriteOnly</Flags>
+                    </FileSystem>
+                    <FileSystem id="xmodem:" title="xmodem:">
+                        <Title>xmodem:</Title>
+                        <Type>Opaque</Type>
+                        <Flags>ReadWrite</Flags>
+                    </FileSystem>
+                    <FileSystem id="ymodem:" title="ymodem:">
+                        <Title>ymodem:</Title>
+                        <Type>Opaque</Type>
+                        <Flags>ReadWrite</Flags>
+                    </FileSystem>
+                    <FileSystem id="rcp:" title="rcp:">
+                        <Title>rcp:</Title>
+                        <Type>Network</Type>
+                        <Flags>ReadWrite</Flags>
+                    </FileSystem>
+                    <FileSystem id="ftp:" title="ftp:">
+                        <Title>ftp:</Title>
+                        <Type>Network</Type>
+                        <Flags>ReadWrite</Flags>
+                    </FileSystem>
+                    <FileSystem id="http:" title="http:">
+                        <Title>http:</Title>
+                        <Type>Network</Type>
+                        <Flags>ReadWrite</Flags>
+                    </FileSystem>
+                    <FileSystem id="scp:" title="scp:">
+                        <Title>scp:</Title>
+                        <Type>Network</Type>
+                        <Flags>ReadWrite</Flags>
+                    </FileSystem>
+                    <FileSystem id="https:" title="https:">
+                        <Title>https:</Title>
+                        <Type>Network</Type>
+                        <Flags>ReadWrite</Flags>
+                    </FileSystem>
+                    <FileSystem id="cns:" title="cns:">
+                        <Title>cns:</Title>
+                        <Type>Opaque</Type>
+                        <Flags>ReadOnly</Flags>
+                    </FileSystem>
+                </FileSystems>
+                <ConfigurationFiles>
+                    <StartupConfiguration>Using 1167 out of 57336 bytes&#xD;
+                        !&#xD;
+                        version 12.4&#xD;
+                        service timestamps debug datetime msec&#xD;
+                        service timestamps log datetime msec&#xD;
+                        service password-encryption&#xD;
+                        !&#xD;
+                        hostname c3725-2&#xD;
+                        !&#xD;
+                        boot-start-marker&#xD;
+                        boot-end-marker&#xD;
+                        !&#xD;
+                        logging buffered 4096 debugging&#xD;
+                        enable password 7 1131015445415F5952&#xD;
+                        !&#xD;
+                        aaa new-model&#xD;
+                        !&#xD;
+                        !&#xD;
+                        aaa authentication login default local&#xD;
+                        !&#xD;
+                        aaa session-id common&#xD;
+                        memory-size iomem 5&#xD;
+                        ip cef&#xD;
+                        !&#xD;
+                        !&#xD;
+                        !&#xD;
+                        !&#xD;
+                        ip domain name rvlab.net&#xD;
+                        login on-success log&#xD;
+                        !&#xD;
+                        !&#xD;
+                        !&#xD;
+                        !&#xD;
+                        username cisco privilege 15 secret 5 $1$nso3$9rUcFW5cRaVpWQrLazQKK0&#xD;
+                        !&#xD;
+                        !&#xD;
+                        ! &#xD;
+                        !&#xD;
+                        !&#xD;
+                        !&#xD;
+                        interface FastEthernet0/0&#xD;
+                        ip address 172.16.101.26 255.255.255.0&#xD;
+                        duplex auto&#xD;
+                        speed auto&#xD;
+                        !&#xD;
+                        interface FastEthernet0/1&#xD;
+                        no ip address&#xD;
+                        shutdown&#xD;
+                        duplex auto&#xD;
+                        speed auto&#xD;
+                        !&#xD;
+                        ip route 0.0.0.0 0.0.0.0 172.16.101.1&#xD;
+                        !&#xD;
+                        ip http server&#xD;
+                        no ip http secure-server&#xD;
+                        !&#xD;
+                        snmp-server user user1 noAuthNoPrivGroup v3 &#xD;
+                        snmp-server group SNMPGroup v3 auth &#xD;
+                        snmp-server group authPrivGroup v3 auth read rvision &#xD;
+                        snmp-server group authNoPrivGroup v3 auth read rvision &#xD;
+                        snmp-server group noAuthNoPrivGroup v3 noauth read rvision &#xD;
+                        snmp-server view rvision internet included&#xD;
+                        snmp-server community public RO&#xD;
+                        !&#xD;
+                        !&#xD;
+                        control-plane&#xD;
+                        !&#xD;
+                        !&#xD;
+                        !&#xD;
+                        line con 0&#xD;
+                        line aux 0&#xD;
+                        line vty 0 4&#xD;
+                        transport input ssh&#xD;
+                        !&#xD;
+                        !&#xD;
+                        end</StartupConfiguration>
+                    <RunningConfiguration>Building configuration...&#xD;
+                        &#xD;
+                        Current configuration : 1167 bytes&#xD;
+                        !&#xD;
+                        version 12.4&#xD;
+                        service timestamps debug datetime msec&#xD;
+                        service timestamps log datetime msec&#xD;
+                        service password-encryption&#xD;
+                        !&#xD;
+                        hostname c3725-2&#xD;
+                        !&#xD;
+                        boot-start-marker&#xD;
+                        boot-end-marker&#xD;
+                        !&#xD;
+                        logging buffered 4096 debugging&#xD;
+                        enable password 7 1131015445415F5952&#xD;
+                        !&#xD;
+                        aaa new-model&#xD;
+                        !&#xD;
+                        !&#xD;
+                        aaa authentication login default local&#xD;
+                        !&#xD;
+                        aaa session-id common&#xD;
+                        memory-size iomem 5&#xD;
+                        ip cef&#xD;
+                        !&#xD;
+                        !&#xD;
+                        !&#xD;
+                        !&#xD;
+                        ip domain name rvlab.net&#xD;
+                        login on-success log&#xD;
+                        !&#xD;
+                        !&#xD;
+                        !&#xD;
+                        !&#xD;
+                        username cisco privilege 15 secret 5 $1$nso3$9rUcFW5cRaVpWQrLazQKK0&#xD;
+                        !&#xD;
+                        !&#xD;
+                        ! &#xD;
+                        !&#xD;
+                        !&#xD;
+                        !&#xD;
+                        interface FastEthernet0/0&#xD;
+                        ip address 172.16.101.26 255.255.255.0&#xD;
+                        duplex auto&#xD;
+                        speed auto&#xD;
+                        !&#xD;
+                        interface FastEthernet0/1&#xD;
+                        no ip address&#xD;
+                        shutdown&#xD;
+                        duplex auto&#xD;
+                        speed auto&#xD;
+                        !&#xD;
+                        ip route 0.0.0.0 0.0.0.0 172.16.101.1&#xD;
+                        !&#xD;
+                        ip http server&#xD;
+                        no ip http secure-server&#xD;
+                        !&#xD;
+                        snmp-server user user1 noAuthNoPrivGroup v3 &#xD;
+                        snmp-server group SNMPGroup v3 auth &#xD;
+                        snmp-server group authPrivGroup v3 auth read rvision &#xD;
+                        snmp-server group authNoPrivGroup v3 auth read rvision &#xD;
+                        snmp-server group noAuthNoPrivGroup v3 noauth read rvision &#xD;
+                        snmp-server view rvision internet included&#xD;
+                        snmp-server community public RO&#xD;
+                        !&#xD;
+                        !&#xD;
+                        control-plane&#xD;
+                        !&#xD;
+                        !&#xD;
+                        !&#xD;
+                        line con 0&#xD;
+                        line aux 0&#xD;
+                        line vty 0 4&#xD;
+                        transport input ssh&#xD;
+                        !&#xD;
+                        !&#xD;
+                        end</RunningConfiguration>
+                    <DiffConfiguration>!&#xD;
+                        version 12.4&#xD;
+                        service timestamps debug datetime msec&#xD;
+                        service timestamps log datetime msec&#xD;
+                        service password-encryption&#xD;
+                        !&#xD;
+                        hostname c3725-2&#xD;
+                        !&#xD;
+                        boot-start-marker&#xD;
+                        boot-end-marker&#xD;
+                        !&#xD;
+                        logging buffered 4096 debugging&#xD;
+                        enable password 7 1131015445415F5952&#xD;
+                        !&#xD;
+                        aaa new-model&#xD;
+                        !&#xD;
+                        !&#xD;
+                        aaa authentication login default local&#xD;
+                        !&#xD;
+                        aaa session-id common&#xD;
+                        memory-size iomem 5&#xD;
+                        ip cef&#xD;
+                        !&#xD;
+                        !&#xD;
+                        !&#xD;
+                        !&#xD;
+                        ip domain name rvlab.net&#xD;
+                        login on-success log&#xD;
+                        !&#xD;
+                        !&#xD;
+                        !&#xD;
+                        !&#xD;
+                        username cisco privilege 15 secret 5 $1$nso3$9rUcFW5cRaVpWQrLazQKK0&#xD;
+                        !&#xD;
+                        !&#xD;
+                        ! &#xD;
+                        !&#xD;
+                        !&#xD;
+                        !&#xD;
+                        interface FastEthernet0/0&#xD;
+                        ip address 172.16.101.26 255.255.255.0&#xD;
+                        duplex auto&#xD;
+                        speed auto&#xD;
+                        !&#xD;
+                        interface FastEthernet0/1&#xD;
+                        no ip address&#xD;
+                        shutdown&#xD;
+                        duplex auto&#xD;
+                        speed auto&#xD;
+                        !&#xD;
+                        ip route 0.0.0.0 0.0.0.0 172.16.101.1&#xD;
+                        !&#xD;
+                        ip http server&#xD;
+                        no ip http secure-server&#xD;
+                        !&#xD;
+                        snmp-server user user1 noAuthNoPrivGroup v3 &#xD;
+                        snmp-server group SNMPGroup v3 auth &#xD;
+                        snmp-server group authPrivGroup v3 auth read rvision &#xD;
+                        snmp-server group authNoPrivGroup v3 auth read rvision &#xD;
+                        snmp-server group noAuthNoPrivGroup v3 noauth read rvision &#xD;
+                        snmp-server view rvision internet included&#xD;
+                        snmp-server community public RO&#xD;
+                        !&#xD;
+                        !&#xD;
+                        control-plane&#xD;
+                        !&#xD;
+                        !&#xD;
+                        !&#xD;
+                        line con 0&#xD;
+                        line aux 0&#xD;
+                        line vty 0 4&#xD;
+                        transport input ssh&#xD;
+                        !&#xD;
+                        !&#xD;
+                        end&#xD;
+                    </DiffConfiguration>
+                </ConfigurationFiles>
+                <Services>
+                    <Service id="timestamps debug datetime msec">timestamps debug datetime msec</Service>
+                    <Service id="timestamps log datetime msec">timestamps log datetime msec</Service>
+                    <Service id="password-encryption">password-encryption</Service>
+                </Services>
+                <LocalUsers>
+                    <User id="cisco" title="cisco">
+                        <Name>cisco</Name>
+                        <PrivilegeLevel>15</PrivilegeLevel>
+                        <PasswordType>secret 5</PasswordType>
+                        <Password>$1$nso3$9rUcFW5cRaVpWQrLazQKK0</Password>
+                    </User>
+                </LocalUsers>
+                <TerminalLines>
+                    <TerminalLine id="line con 0" title="line con 0">
+                        <Name>line con 0</Name>
+                    </TerminalLine>
+                    <TerminalLine id="line aux 0" title="line aux 0">
+                        <Name>line aux 0</Name>
+                    </TerminalLine>
+                    <TerminalLine id="line vty 0 4" title="line vty 0 4">
+                        <Name>line vty 0 4</Name>
+                        <InputTransport>ssh</InputTransport>
+                    </TerminalLine>
+                </TerminalLines>
+                <SnmpCommunityStrings>
+                    <SnmpCommunityString id="public" title="public">
+                        <Name>public</Name>
+                        <Permissions>RO</Permissions>
+                    </SnmpCommunityString>
+                </SnmpCommunityStrings>
+                <EventLoggingService>
+                    <EventLoggingServiceEnabled>True</EventLoggingServiceEnabled>
+                    <Buffer>4096</Buffer>
+                </EventLoggingService>
+                <NetworkInterfaces>
+                    <NetworkInterface id="FastEthernet0/0" title="FastEthernet0/0">
+                        <Name>FastEthernet0/0</Name>
+                        <MacAddress>c202.1d15.0000</MacAddress>
+                        <DirectedBroadcastEnabled>false</DirectedBroadcastEnabled>
+                        <SourceRouteEnabled>false</SourceRouteEnabled>
+                        <IpAddresses>
+                            <IpAddress id="172.16.101.26" title="172.16.101.26">
+                                <IP>172.16.101.26</IP>
+                                <Subnet>255.255.255.0</Subnet>
+                            </IpAddress>
+                        </IpAddresses>
+                    </NetworkInterface>
+                    <NetworkInterface id="FastEthernet0/1" title="FastEthernet0/1">
+                        <Name>FastEthernet0/1</Name>
+                        <MacAddress>c202.1d15.0001</MacAddress>
+                        <DirectedBroadcastEnabled>false</DirectedBroadcastEnabled>
+                        <SourceRouteEnabled>false</SourceRouteEnabled>
+                    </NetworkInterface>
+                </NetworkInterfaces>
+            </OperatingSystem>
+        </Software>
+        <OVAL>
+            <inventory altx_id="63566" version="3"/>
+            <inventory altx_id="69585" version="1"/>
+            <inventory altx_id="69595" version="1"/>
+            <inventory altx_id="69586" version="1"/>
+            <inventory altx_id="171936" version="1"/>
+        </OVAL>
+    </scan_result>
+</redcheck>

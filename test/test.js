@@ -8,6 +8,12 @@
 var should = require('should');
 var RedCheck = require('../index.js');
 
+const testIds = {
+    windows: 1,
+    linux: 13,
+    cisco: 15
+};
+
 /*var redcheck = new RedCheck({
     hostname: 'altxtst.cloudapp.net',
     protocol: 'http',
@@ -129,27 +135,35 @@ describe('RedCheck', function () {
         });
     });
 
-    describe('#inventory', function () {
-        var data = null;
+    describe('#inventory required fields', function () {
+        function checkRequiredFields(err, result) {
+            should.not.exist(err);
 
-        before(function (done) {
-            hostsIds.should.be.a.Array;
+            result.should.be.an.Object;
+            result.should.have.property('networkadapters').which.is.an.Array.and.not.empty;
 
-            var hostId = hostsIds[Math.floor(Math.random() * hostsIds.length)];
+            result.should.have.property('os').which.is.an.Object.and.not.empty;
+        }
 
-            hostId = 1;
-            console.log('    #host id: ' + hostId);
-
-            redcheck.inventory(hostId, function (err, result) {
-                should.not.exist(err);
-                data = result;
-                // console.log(JSON.stringify(data, null, 2));
+        it('*windows result should have required fields', function (done) {
+            redcheck.inventory(testIds.windows, function (err, result) {
+                checkRequiredFields(err, result);
                 done();
             });
         });
 
-        it('Result should be an Object', function () {
-            data.should.be.a.Object;
+        it('*linux result should have required fields', function (done) {
+            redcheck.inventory(testIds.linux, function (err, result) {
+                checkRequiredFields(err, result);
+                done();
+            });
+        });
+
+        it('*cisco result should have required fields', function (done) {
+            redcheck.inventory(testIds.cisco, function (err, result) {
+                checkRequiredFields(err, result);
+                done();
+            });
         });
     });
 

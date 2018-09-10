@@ -319,7 +319,7 @@ RedCheck.prototype.patch = function (id, callback) {
  */
 RedCheck.prototype.inventory = function (id, callback) {
     this.get('inventory/' + id, function (err, response, data) {
-        var result = [];
+        let result = {};
 
         if (!err) {
             if (data.hasOwnProperty('scan_result')) {
@@ -327,6 +327,67 @@ RedCheck.prototype.inventory = function (id, callback) {
 
                 if (scanResult.hasOwnProperty('hardware')) {
                     result = scanResult.hardware;
+
+                    if (scanResult.hasOwnProperty('software')) {
+                        if (scanResult.software.hasOwnProperty('os')) {
+                            result.os = scanResult.software.os;
+                        }
+
+                        if (scanResult.software.hasOwnProperty('installedsoftware')) {
+                            result.software = toArrayFromProperty(
+                                scanResult.software.installedsoftware,
+                                'product'
+                            );
+                        }
+                    }
+
+                    const { cpe } = scanResult;
+                    if (cpe === 'cpe:/o:cisco:ios') {
+                        if (scanResult.hasOwnProperty('software')) {
+                            if (scanResult.software.hasOwnProperty('operatingsystem')) {
+                                const { operatingsystem: os } = scanResult.software;
+                                result.os = os;
+
+                                if (os.networkinterfaces.networkinterface && os.networkinterfaces.networkinterface.length) {
+                                    const networkInterfaces = os.networkinterfaces.networkinterface;
+                                    result.networkadapters = [];
+
+                                    for (let item of networkInterfaces) {
+                                        const macAddress = item.macaddress;
+
+                                        if (macAddress) {
+                                            // cisco отдает мас-адрес в виде c202.1d15.0000, форматируем
+                                            item.mac = macAddress
+                                                .match(/\w{1,2}/g)
+                                                .join(':')
+                                                .toUpperCase();
+
+                                            delete item.macaddress;
+                                        }
+
+                                        result.networkadapters.push(item);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else if (cpe.includes('linux')) {
+                        if (scanResult.hasOwnProperty('software')) {
+                            if (scanResult.software.hasOwnProperty('operatingsystem')) {
+                                const { operatingsystem: os } = scanResult.software;
+                                result.os = os;
+
+                                if (os.networkinterfaces.networkinterface && os.networkinterfaces.networkinterface.length) {
+                                    result.networkadapters = os.networkinterfaces.networkinterface;
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        if (result.hasOwnProperty('networkadapters')) {
+                            result.networkadapters = toArrayFromProperty(result.networkadapters, 'adapter');
+                        }
+                    }
 
                     if (result.hasOwnProperty('cpus')) {
                         result.cpus = toArrayFromProperty(result.cpus, 'cpu');
@@ -340,10 +401,6 @@ RedCheck.prototype.inventory = function (id, callback) {
                         result.videocontrollers = toArrayFromProperty(result.videocontrollers, 'videocontroller');
                     }
 
-                    if (result.hasOwnProperty('networkadapters')) {
-                        result.networkadapters = toArrayFromProperty(result.networkadapters, 'adapter');
-                    }
-
                     if (result.hasOwnProperty('physicaldrives')) {
                         result.physicaldrives = toArrayFromProperty(result.physicaldrives, 'drive');
                     }
@@ -352,23 +409,8 @@ RedCheck.prototype.inventory = function (id, callback) {
                         result.logicaldrives = toArrayFromProperty(result.logicaldrives, 'drive');
                     }
                 } else {
-                    err = new Error('hardware is undefined');
+                    err = new Error('scan_result is undefined');
                 }
-
-                if (scanResult.hasOwnProperty('software')) {
-                    if (scanResult.software.hasOwnProperty('os')) {
-                        result.os = scanResult.software.os;
-                    }
-
-                    if (scanResult.software.hasOwnProperty('installedsoftware')) {
-                        result.software = toArrayFromProperty(
-                            scanResult.software.installedsoftware,
-                            'product'
-                        );
-                    }
-                }
-            } else {
-                err = new Error('scan_result is undefined');
             }
         }
 
