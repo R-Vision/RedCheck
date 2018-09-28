@@ -1,6 +1,6 @@
 {
   "name": "redcheck",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "RedCheck API wrapper",
   "main": "index.js",
   "scripts": {
