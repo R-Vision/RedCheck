@@ -5,6 +5,8 @@ var _ = require('lodash');
 var parseString = require('xml2js').parseString;
 var request = require('request');
 
+const SCAN_INCOMPLETE = 'Scan status is not complete';
+
 /**
  * parseXml
  * @param body
@@ -212,7 +214,7 @@ RedCheck.prototype.hosts = function (callback) {
 };
 
 /**
- * scans
+ * vulnerability
  * @param id
  * @param callback
  */
@@ -223,10 +225,15 @@ RedCheck.prototype.vulnerability = function (id, callback) {
         if (!err) {
             if (data.hasOwnProperty('scan_result')) {
                 var scanResult = data.scan_result;
+                if (scanResult.status !== 'Complete') throw new Error(SCAN_INCOMPLETE);
+
+                const scanDate = scanResult.stop;
 
                 if (scanResult.hasOwnProperty('vulnerability')) {
                     toArray(scanResult.vulnerability).forEach(function (vulnerability) {
                         if (!_.isEmpty(vulnerability)) {
+                            vulnerability.elimination_date = scanDate;
+                            vulnerability.discovery_date = scanDate;
                             result.push(vulnerability);
                         }
                     });
@@ -286,6 +293,8 @@ RedCheck.prototype.patch = function (id, callback) {
             if (data.hasOwnProperty('scan_result')) {
                 var scanResult = data.scan_result;
 
+                if (scanResult.status !== 'Complete') throw new Error(SCAN_INCOMPLETE);
+
                 if (scanResult.hasOwnProperty('patch')) {
                     toArray(scanResult.patch).forEach(function (patch) {
                         if (!_.isEmpty(patch)) {
@@ -324,6 +333,8 @@ RedCheck.prototype.inventory = function (id, callback) {
         if (!err) {
             if (data.hasOwnProperty('scan_result')) {
                 var scanResult = data.scan_result;
+
+                if (scanResult.status !== 'Complete') throw new Error(SCAN_INCOMPLETE);
 
                 if (scanResult.hasOwnProperty('hardware')) {
                     result = scanResult.hardware;
@@ -388,6 +399,8 @@ RedCheck.prototype.inventory = function (id, callback) {
                             result.networkadapters = toArrayFromProperty(result.networkadapters, 'adapter');
                         }
                     }
+
+                    result.updated_at = scanResult.stop;
 
                     if (result.hasOwnProperty('cpus')) {
                         result.cpus = toArrayFromProperty(result.cpus, 'cpu');
